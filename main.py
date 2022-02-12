@@ -16,10 +16,6 @@ class PackBot(discord.Client):
             while self.packing == True:
                 pack = random.choice(options)
                 await message.channel.send(f"<@{message.mentions[0].id}> {pack} ")
-
-        if message.author == self.user and "afk" in message.content:
-            for n in range(0,100):
-                await message.channel.send(f"<@{message.mentions[0].id}> {100-(n+1)}")
         
         if message.author == self.user and ".stop" in message.content:
             self.packing = False
