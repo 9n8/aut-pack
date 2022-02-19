@@ -1,4 +1,4 @@
-import sys, time
+import sys, time, os
 
 from pystyle import Colors, Colorate
 
@@ -12,6 +12,15 @@ import random, discord
 
 with open("pack.txt", "r") as x:
     options = x.readlines()
+
+
+slow_write("\u001b[38;5;156m-> Loading..")
+
+
+os.system("cls")
+os.system(f'title [PACKER]')
+os.system(f'mode 30,15')
+
 
 class PackBot(discord.Client):
     async def on_ready(self):
