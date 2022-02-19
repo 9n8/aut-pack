@@ -1,13 +1,21 @@
-import random, discord
+import sys, time
 
-token = input("Enter Token: ")
+from pystyle import Colors, Colorate
+
+def slow_write(text):
+    for x in text: print('' + x, end="");sys.stdout.flush();time.sleep(0.005)
+
+slow_write("\u001b[38;5;159m-> Token: ")
+token = input()
+
+import random, discord
 
 with open("pack.txt", "r") as x:
     options = x.readlines()
 
 class PackBot(discord.Client):
     async def on_ready(self):
-        print('logged in as {0}'.format(self.user))
+        slow_write('logged in as {0}'.format(self.user))
         self.packing = False
     
     async def on_message(self, message):
